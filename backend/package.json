@@ -1,0 +1,21 @@
+{
+  "name": "backnodemsql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -w",
+    "dev": "nodemon build/index.js"
+  },
+  "author": "alexsk88dev",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "promise-mysql": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "morgan": "^1.9.1"
+  }
+}
