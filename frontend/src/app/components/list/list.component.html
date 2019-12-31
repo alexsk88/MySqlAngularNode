@@ -1,0 +1,27 @@
+<div class="col-md-4" *ngFor="let game of games">
+  <div class="card mb-3 left">
+    <h3 class="card-header">{{game.title}}
+
+    </h3>
+    <img style="height: 200px; width: 100%; display: block;" [src]=game.image alt="Card image">
+    <div class="card-body">
+      <p class="card-text">{{game.description}}
+      </p>
+    </div>
+
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+    <div class="card-footer aling-items-center d-flex justify-content-between">
+      <button class="btn btn-danger" type="button" data-toggle="tooltip" data-placement="top" title="Elminar"
+        (click)="delete(game.id)">
+        <img src="assets/img/trash.png" width="50%" alt="Remove">
+      </button>
+      <button class="btn btn-warning" type="button" data-toggle="tooltip" data-placement="top" title="Editar"
+        [routerLink]="['/edit-game', game.id]">
+        <img src="assets/img/edit.png" width="50%" alt="Editar">
+      </button>
+    </div>
+  </div>
+
+</div>
