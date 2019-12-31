@@ -1,0 +1,21 @@
+CREATE DATABASE nodeSQL;
+
+
+CREATE TABLE games(
+
+  id INT(100) NOT NULL AUTO_INCREMENT,
+  title VARCHAR(150),
+  categoria_id INT (20),
+  description VARCHAR(255),
+  image VARCHAR(200),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT pk_games PRIMARY KEY(id),
+  CONSTRAINT fk_categ FOREIGN KEY(categoria_id) REFERENCES categorias(id)
+
+)ENGINE=InnoDb;
+
+CREATE TABLE categorias(
+
+  id INT(100) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(150)
+)ENGINE=InnoDb;

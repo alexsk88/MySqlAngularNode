@@ -1,5 +1,8 @@
 import express, { Application } from 'express'
-
+import indexRoutes from './routes/indexRoutes';
+import gamesRoutes from './routes/gamesRoutes';
+import morgan from 'morgan';
+import cors from 'cors';
 
 class Server {
 
@@ -13,10 +16,16 @@ class Server {
 
   config(): void {
     this.app.set('port', process.env.PORT || 3000);
+    this.app.use(morgan('dev')); // Show http code
+    this.app.use(cors()); // El CORS , ¡ ya tu sabe !
+
+    this.app.use(express.json()); // Acepta JSON de clientes
+    this.app.use(express.urlencoded({ extended: false })); // Acepta formulario HTML
   }
 
   routes(): void {
-
+    this.app.use(indexRoutes);
+    this.app.use('/api/games', gamesRoutes);
   }
 
   start(): void {
